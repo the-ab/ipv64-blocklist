@@ -1,3 +1,8 @@
+## v64 Firewall Blocklist & First Level Protection  
+- https://ipv64.net/blocklist_blocker_nodes 
+- https://ipv64.net/blocklist (Unterschiedlich wenn Eingeloggt)
+
+---
 # iptable_parser.sh
 
 Parser for iptables blocklist
@@ -9,7 +14,7 @@ Depencys iptable-persistent & jq
 
   Precheck `iptables-legacy-save | grep -F "icmp-port-unreachable"` if emtpy response (no blocked ip)
 
-------------------------------------
+---
 # v64_blocklist_mikrotik_parser.py
 These Script Read die Mikrotik Firewall IP Address List and sent it to v64_Blocklist.
 
@@ -39,7 +44,7 @@ add action=jump chain=input in-interface-list=WANs jump-target=Tarpit protocol=t
 add action=add-src-to-address-list address-list=v64_Blocklist_report address-list-timeout=2h chain=Tarpit  
 add action=tarpit chain=Tarpit in-interface-list=WANs protocol=tcp  
 
-------------------------------------
+---
 
 ## v64_blocklist_fail2ban_parser.py  ( iptables auslesen )  
 
