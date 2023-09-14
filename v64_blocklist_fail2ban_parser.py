@@ -47,7 +47,7 @@ else:
 
     ip_list = json.dumps(ip_list, indent=2)
 
-# Drucke den JSON-String
+# Drucke den JSON-String ( nur für den test )
 #print(ip_list)
     
 payload = {'blocker_id': v64_blocker_node_id,
