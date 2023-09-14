@@ -41,11 +41,13 @@ add action=tarpit chain=Tarpit in-interface-list=WANs protocol=tcp
 
 ------------------------------------
 
-v64_blocklist_fail2ban_parser.py
-v64_blocklist_crowdsec_parser.py
-v64_blocklist_crowdsec_parser_pfctl.py
+v64_blocklist_fail2ban_parser.py  ( iptables auslesen )  
 
-ersetze dein API key und Blocker ID
+v64_blocklist_crowdsec_parser.py ( ipset auslesen )  
+
+v64_blocklist_crowdsec_parser_pfctl.py ( pfctl tabellen auslesen in OPNsense )  
+
+ersetze dein API key und Blocker Node ID
 
 # Get it From IPv64.net Website
 v64_api_token="dein-api-key"
