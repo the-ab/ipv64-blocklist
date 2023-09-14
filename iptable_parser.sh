@@ -1,6 +1,7 @@
 #!/bin/bash
 
-API="YOUR-API-KEY"
+API="dein-api-key"
+BID="deine-blocker-id"
 
 IFS=$(echo -en "\n\b")
 
@@ -38,5 +39,5 @@ if [ $i -gt 0 ]; then
 	datajson=$(echo "{\"ip_list\":[$ip_list]}\"}" | jq -c . 2>/dev/null)
 	curljson=$(jq -n -c --arg data "$datajson" '{"report_ip_list": $data}')
 	#curl https://ipv64.net/api.php -H "Authorization: Bearer ${API}" -H 'Content-Type: application/json' -d "$curljson" --trace-ascii /dev/stdout
-	curl -s -X POST https://ipv64.net/api.php -H "Authorization: Bearer ${API}" -F "blocker_id=hXTr4CGu3eNHPB8FsqgQAjcI2kl9oJY7" -F "report_ip_list=\"$(echo "$datajson" | sed "s/\"/\\\\\"/g")\""
+	curl -s -X POST https://ipv64.net/api.php -H "Authorization: Bearer ${API}" -F "blocker_id=${BID}" -F "report_ip_list=\"$(echo "$datajson" | sed "s/\"/\\\\\"/g")\""
 fi
