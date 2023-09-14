@@ -41,17 +41,17 @@ add action=tarpit chain=Tarpit in-interface-list=WANs protocol=tcp
 
 ------------------------------------
 
-v64_blocklist_fail2ban_parser.py  ( iptables auslesen )  
+## v64_blocklist_fail2ban_parser.py  ( iptables auslesen )  
 
-v64_blocklist_crowdsec_parser.py ( ipset auslesen )  
+## v64_blocklist_crowdsec_parser.py ( ipset auslesen )  
 
-v64_blocklist_crowdsec_parser_pfctl.py ( pfctl tabellen auslesen in OPNsense )  
+## v64_blocklist_crowdsec_parser_pfctl.py ( pfctl tabellen auslesen in OPNsense )  
 
 ersetze dein API key und Blocker Node ID
 
-# Get it From IPv64.net Website
+- Get it From IPv64.net Website  
 v64_api_token="dein-api-key"
-# Blocker Node ID
+- Blocker Node ID  
 v64_blocker_node_id="deine-blocker-id"
 
 Cron Job Beispiel
