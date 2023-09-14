@@ -9,7 +9,7 @@ Depencys iptable-persistent & jq
 
   Precheck `iptables-legacy-save | grep -F "icmp-port-unreachable"` if emtpy response (no blocked ip)
 
-
+------------------------------------
 # v64_blocklist_mikrotik_parser.py
 These Script Read die Mikrotik Firewall IP Address List and sent it to v64_Blocklist.
 
@@ -38,3 +38,21 @@ add action=jump chain=input dst-port=25 in-interface-list=WANs jump-target=Tarpi
 add action=jump chain=input in-interface-list=WANs jump-target=Tarpit protocol=tcp psd=21,5s,10,5  
 add action=add-src-to-address-list address-list=v64_Blocklist_report address-list-timeout=2h chain=Tarpit  
 add action=tarpit chain=Tarpit in-interface-list=WANs protocol=tcp  
+------------------------------------
+
+v64_blocklist_fail2ban_parser.py
+v64_blocklist_crowdsec_parser.py
+v64_blocklist_crowdsec_parser_pfctl.py
+
+ersetze dein API key und Blocker ID
+
+# Get it From IPv64.net Website
+v64_api_token="dein-api-key"
+# Blocker Node ID
+v64_blocker_node_id="deine-blocker-id"
+
+Cron Job Beispiel
+
+*/15 *	* * *	root    python3 /opt/v64_blocklist_crowdsec_parser.py > /dev/null
+*/15 *	* * *	root    python3 /opt/v64_blocklist_crowdsec_parser_pfctl.py > /dev/null
+*/15 *	* * *	root    python3 /opt/v64_blocklist_fail2ban_parser.py > /dev/null
