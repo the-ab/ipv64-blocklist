@@ -1,9 +1,12 @@
-## v64 Firewall Blocklist & First Level Protection  
+# v64 Firewall Blocklist & First Level Protection  
 - https://ipv64.net/blocklist_blocker_nodes 
 - https://ipv64.net/blocklist (Unterschiedlich wenn Eingeloggt)
 
+hier sind mir bekannte Parser zusammengeführt in einem Repository, ein teil davon ist von https://github.com/ipv64net
+
+
 ---
-# iptable_parser.sh
+## iptable_parser.sh
 
 Parser for iptables blocklist
 
@@ -18,19 +21,19 @@ Depencys iptable-persistent & jq
 # v64_blocklist_mikrotik_parser.py
 These Script Read die Mikrotik Firewall IP Address List and sent it to v64_Blocklist.
 
-# 1. Install requirements
+## 1. Install requirements
 
 pip3 install -r requirements.txt
 
-# 2. Edit global variables
+## 2. Edit global variables
 
 Edit the global variables in the python file
 
-# 3. Test it
+## 3. Test it
 
 run /usr/bin/python3 v64_blocklist_mikrotik_parser.py and see if everything is working correctly
 
-# 4. Crontab
+## 4. Crontab
 */15 * * * * cd /root/v64_blocklist_mikrotik_parser && /usr/bin/python3 v64_blocklist_mikrotik_parser.py
 
 ## Mikrotik Example Rules to Detect something.....
@@ -46,11 +49,13 @@ add action=tarpit chain=Tarpit in-interface-list=WANs protocol=tcp
 
 ---
 
-## v64_blocklist_fail2ban_parser.py  ( iptables auslesen )  
+# v64_blocklist_fail2ban_parser.py  ( iptables auslesen )  
 
-## v64_blocklist_crowdsec_parser.py ( ipset auslesen )  
+# v64_blocklist_crowdsec_parser.py ( ipset auslesen )  
 
-## v64_blocklist_crowdsec_parser_pfctl.py ( pfctl tabellen auslesen in OPNsense )  
+# v64_blocklist_crowdsec_parser_pfctl.py ( pfctl tabellen auslesen in OPNsense )  
+
+ausführen in der shell mit "python3 ./v64_blocklist_*_parser.py"
 
 ersetze dein API key und Blocker Node ID
 
