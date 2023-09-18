@@ -69,3 +69,8 @@ Cron Job Beispiel
 */15 *	* * *	root    python3 /opt/v64_blocklist_crowdsec_parser.py > /dev/null  
 */15 *	* * *	root    python3 /opt/v64_blocklist_crowdsec_parser_pfctl.py > /dev/null  
 */15 *	* * *	root    python3 /opt/v64_blocklist_fail2ban_parser.py > /dev/null  
+
+Cron Job OPNsense Weboberfläche  
+Datei actions_v64-blocklist.conf Speichern in "/usr/local/opnsense/service/conf/actions.d"   
+script pfad wen notwendig anpassen, anschliessend "service configd restart"  
+jetzt kann der Cron Job in der Weboberfläche unter System/Einstellungen/Cron ausgewählt werden
